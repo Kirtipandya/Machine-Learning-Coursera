@@ -75,7 +75,11 @@ y_final = (temp == y);
 
 J = (1/m) * sum ( sum ( (-y_final .* log(a3) - (1-y_final) .* log(1-a3)) ));
 
+Theta1_wo_b = Theta1(:,2:size(Theta1,2));
+Theta2_wo_b = Theta2(:,2:size(Theta2,2));
 
+Reg = (lambda/(2*m))  * (sum( sum ( Theta1_wo_b.^ 2 )) + sum( sum ( Theta2_wo_b.^ 2 ))); 
+J = J +Reg;
 % -------------------------------------------------------------
 
 % =========================================================================
