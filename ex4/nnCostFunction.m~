@@ -75,8 +75,9 @@ temp = 1:10 ;
 temp = repelem(temp,m,1);
 y_final = (temp == y); % 5000 x 10
 
-
-J = (1/m) * sum ( sum ( (-y_final .* log(a3) - (1-y_final) .* log(1-a3)) ));
+size(y_final)
+size(a3)
+J = (1/m) * sum ( sum ( (-y_final' .* log(a3) - (1-y_final)' .* log(1-a3)) ));
 
 
 
