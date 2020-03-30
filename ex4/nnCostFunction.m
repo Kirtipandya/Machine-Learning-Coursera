@@ -69,11 +69,11 @@ a2 = [ones(size(a2,1),1) a2]; % (5000 x 26)
 z3 = a2 * Theta2'; % (5000 x 26) * (26 x 10) --> (5000 x 10)
 a3 = sigmoid(z3); % (5000 x 10)
 
-y_final = zeros(num_labels, m); % 10*5000
-for i=1:m,
-  y_final(y(i),i)=1;
-end
-J = (1/m) * sum ( sum ( (-y_final' .* log(a3) - (1-y_final)' .* log(1-a3)) ));
+temp = 1:num_labels;
+temp = repelem(temp,m,1);
+y_final = (temp == y);
+
+J = (1/m) * sum ( sum ( (-y_final .* log(a3) - (1-y_final) .* log(1-a3)) ));
 
 
 % -------------------------------------------------------------
