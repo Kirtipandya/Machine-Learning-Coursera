@@ -62,7 +62,7 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-
+X = [ones(m,1) X]
 
 
 
