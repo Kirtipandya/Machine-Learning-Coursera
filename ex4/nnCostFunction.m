@@ -106,7 +106,8 @@ Theta1_grad = (1/m) * Theta1_grad; % (25x401)
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
 
-
+Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + ((lambda/m) * Theta2(:, 2:end));
+Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) + ((lambda/m) * Theta1(:, 2:end)); 
 % -------------------------------------------------------------
 
 % =========================================================================
