@@ -21,7 +21,7 @@ sigma = 0.3;
 %
 %  Note: You can compute the prediction error using 
 %        mean(double(predictions ~= yval))
-
+%{
 
 C_list = [0.01, 0,03, 0.1, 0.3, 1, 3, 10, 30];
 sigma_list = [0.01, 0,03, 0.1, 0.3, 1, 3, 10, 30];
@@ -34,11 +34,11 @@ for i = 1:length(C_list)
         errors(i,j) = mean(double(predictions ~= yval));
     end
 end
-min_value = min ( min(errors) );
-[row column] = find(errors==min_value);
-C = C_list(row);
-sigma = sigma_list(column);
-
+min_column = min ( min(errors) );
+[row column] = find(errors==min_column);
+C = C_list(column);
+sigma = sigma_list(row);
+%}
 % =========================================================================
 
 end

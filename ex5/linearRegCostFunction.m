@@ -18,16 +18,15 @@ grad = zeros(size(theta));
 %
 %               You should set J to the cost and grad to the gradient.
 %
+% Theta = 2x1, X = 12x2, y = 12x1
+RMSE = sum( ( (X*theta - y) .^ 2 ) ) * (1/(2*m));
+Reg = (lambda/(2*m)) * sum(theta(2:end).^2);
+J = RMSE + Reg;
 
 
 
-
-
-
-
-
-
-
+grad(1) = (1/m)*(X(:,1)'*((X * theta) - y));
+grad(2:end) = (1/m)*(X(:,2:end)'*(X * theta - y)) + (lambda/m)*theta(2:end) 
 
 
 % =========================================================================
