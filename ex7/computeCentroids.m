@@ -25,13 +25,13 @@ centroids = zeros(K, n);
 %
 % Note: You can use a for-loop over the centroids to compute this.
 %
-
-
-
-
-
-
-
+for i = 1:K
+    temp =  find(idx == i);
+    ck = length(temp);
+    temp1 = (idx==i) .* X; % (1x300) * (300x2)
+    sumation = sum(temp1);
+    centroids(i,:) = sumation/ck;
+end
 
 % =============================================================
 
